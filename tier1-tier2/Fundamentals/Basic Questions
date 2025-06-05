@@ -1,1 +1,14 @@
+Q: How do attackers use WMI (Windows Management Instrumentation)
+A: it is used in the following ways: 
+1: Reconnaissance attacks: Querying system info with Get-WmiObject
+2: Lateral Movement: Executing remote commands via Invoke-WmiMethod
+3: Persistence: Using __EventFilter, __EventConsumer, and __FilterToConsumerBinding to trigger payloads based on system events.
+4: Execution: Running payloads or launching PowerShell via wmic process call create
 
+Q: Where do you check for malware persistence? 
+A: Automated script that runs through the following: 
+Windows ASEP > System Persistence Mechanisms > Program Loader Abuse > Application Abuse > System Behavior abuse 
+
+Q: Break down a registry run key and persistence location / create a value inside of a run key within registry editor
+Example: Get-WmiObject -Class Win32_OperatingSystem
+A: This is regular and just getting information from the OS
